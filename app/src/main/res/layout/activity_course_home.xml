@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CourseHomeActivity">
+
+    <!-- Back button at the top, initially invisible -->
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_margin="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:visibility="invisible"/>
+
+    <!-- ScrollView to enable scrolling of course content -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottomNavigation"
+        android:layout_marginBottom="10dp"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:id="@+id/coursesLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Your Attachment Style section -->
+            <TextView
+                android:id="@+id/yourAttachmentStyleTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Attachment Style:"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:visibility="invisible"/>
+
+            <Button
+                android:id="@+id/yourAttachmentStyleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Attachment Style Course"
+                android:layout_marginTop="8dp"
+                android:visibility="invisible"/>
+
+            <!-- Attachment Styles section -->
+            <TextView
+                android:id="@+id/attachmentStylesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Attachment Styles:"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"/>
+
+            <!-- Buttons for other attachment styles -->
+            <!-- Repeat these buttons dynamically based on the number of attachment styles -->
+            <Button
+                android:id="@+id/attachmentStyle1Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Attachment Style 1"
+                android:layout_marginTop="8dp"/>
+
+            <Button
+                android:id="@+id/attachmentStyle2Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Attachment Style 2"
+                android:layout_marginTop="8dp"
+                android:visibility="invisible"/>
+
+            <!-- Repeat buttons for other attachment styles as needed -->
+
+            <!-- TextView for course information -->
+            <TextView
+                android:id="@+id/courseTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textSize="16sp"
+                android:textColor="@color/lavender" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation View -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bottom_background"
+        android:elevation="2dp"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@drawable/item_selector"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_menu" />
+
+</RelativeLayout>

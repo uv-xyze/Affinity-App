@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Search bar for adding friends -->
+    <RelativeLayout
+        android:id="@+id/searchBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search for users..."
+            android:inputType="text"
+            android:background="@android:color/transparent"
+            android:padding="8dp" />
+
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:layout_alignBottom="@id/searchBar"
+            android:layout_alignEnd="@id/searchBar"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
+
+    </RelativeLayout>
+
+    <!-- Title for friend requests section -->
+    <TextView
+        android:id="@+id/friendRequestsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Friend Requests"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/searchBarLayout"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp" />
+
+    <!-- List view for displaying friend requests -->
+    <ListView
+        android:id="@+id/listFriendRequests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/friendRequestsTitle"
+        android:layout_marginTop="8dp"
+        android:visibility="gone" /> <!-- Initially hidden -->
+
+    <!-- Message for when there are no friend requests -->
+    <TextView
+        android:id="@+id/noFriendRequestsMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No friend requests"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:layout_below="@id/friendRequestsTitle"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:visibility="gone" /> <!-- Initially hidden -->
+
+    <!-- List view for displaying accepted friends -->
+    <ListView
+        android:id="@+id/listFriendList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/listFriendRequests"
+        android:layout_marginTop="16dp" />
+
+    <!-- Layout for individual friend request item -->
+    <RelativeLayout
+        android:id="@+id/friendRequestItemLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/friendRequestsTitle"
+        android:layout_marginTop="8dp"
+        android:visibility="gone" > <!-- Initially hidden -->
+
+        <TextView
+            android:id="@+id/requestFromTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/requestIdTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+        <Button
+            android:id="@+id/acceptButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Accept"
+            android:layout_below="@id/requestFromTextView"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp" />
+
+        <Button
+            android:id="@+id/denyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deny"
+            android:layout_below="@id/requestFromTextView"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/acceptButton"
+            android:layout_marginStart="16dp" />
+
+    </RelativeLayout>
+
+    <!-- Title for friends list section -->
+    <TextView
+        android:id="@+id/friendsListTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Friends List"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/noFriendRequestsMessage"
+        android:layout_marginTop= "96dp"
+        android:layout_marginStart="16dp"/>
+
+    <!-- ListView for displaying friends -->
+    <ListView
+        android:id="@+id/friendsListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/friendsListTitle"
+        android:layout_marginTop="16dp"
+  />
+
+    <!-- Message for when there are no friends -->
+    <TextView
+        android:id="@+id/noFriendsMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No friends"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:layout_below="@id/friendsListTitle"
+        android:layout_marginTop="56dp"
+        android:layout_marginStart="16dp"
+        android:visibility="gone" />  <!-- Initially hidden -->
+
+    <!-- Bottom Navigation View -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bottom_background"
+        android:elevation="2dp"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@drawable/item_selector"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_menu" />
+
+</RelativeLayout>
